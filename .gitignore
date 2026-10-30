@@ -1,0 +1,18 @@
+# Training data
+/datasett/
+
+# Jupyter autosaves
+/.ipynb_checkpoints/
+
+# Runtime-uploaded images
+/static/uploads/
+
+# Python-generated files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS-generated files
+.DS_Store
+Thumbs.db

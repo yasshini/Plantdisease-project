@@ -44,7 +44,7 @@ This project is a Flask web application that lets users upload an image of a pla
    ```bash
    pip install -r requirements.txt
    ```
-
+4. Download datset : https://drive.google.com/file/d/1BlVARo-EFWEhMvV9bOwdvswDcqM1LXbG/view?usp=sharing
 ## Run the App
 From the project folder, run:
 

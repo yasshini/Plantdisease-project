@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Main Header -->
+        <h1 class="header">Plant Pathology</h1>
+        
+        <!-- Sub-header with brief instruction -->
+        <p class="sub-header">Upload a clear image of a plant leaf to identify its disease and learn about prevention steps.</p>
+
+        <!-- Upload form with file options -->
+        <div class="file-options">  
+            <p class="file-note">Supported file formats: JPG, PNG, JPEG</p>
+	    <form action="{{ url_for('handle_upload') }}" method="POST" enctype="multipart/form-data" class="upload-form">
+                <input type="file" name="file" accept="image/jpeg, image/png" required class="file-input">
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+
+        <!-- Display results if an image has been uploaded -->
+        {% if prediction %}
+        <div class="result-card">
+            <!-- Prediction Result -->
+            <p class="prediction-result">Predicted Disease: {{ prediction }}</p>
+
+            <!-- Uploaded Image -->
+            <img src="{{ file_path }}" class="uploaded-image" alt="Uploaded Plant Image">
+
+            <!-- Description and Prevention Steps -->
+            <div class="result-columns">
+                <div class="column">
+                    <h3 class="prevention-label">Prevention Steps</h3>
+                    <p>{{ prevention }}</p>
+                </div>
+                <div class="column">
+                    <h3 class="prevention-label">Description</h3>
+                    <p>{{ description }}</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
